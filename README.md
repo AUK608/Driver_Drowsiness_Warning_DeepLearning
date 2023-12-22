@@ -5,4 +5,6 @@ This repository contains implementation in the form of jupyter notebook(.ipynb).
 
 The Inputs and Outputs are zipped and kept separately.
 
-The References to Inputs, Codes, Issues, etc., are kept in text files. The Libraries installed with the version is also kept in text files.
+The References to Inputs, Codes, Issues, Solutions, etc., are kept in text files. The Libraries installed with the version is also kept in text files.
+
+The Model has been trained on NVIDIA RTX 3080 10GB variant.
