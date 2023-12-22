@@ -1,0 +1,16 @@
+1) Installed pytorch in environment of "G:\Projects\Test_Projects\Test_Py_Environment\" (it has TF==2.6)
+2) There is no pytorch version for cuda toolkit=11.2, cudnn=8.1
+also given in this website https://stackoverflow.com/questions/70396187/pytorch-gpu-install-with-11-2-cuda
+3) So, install from https://pytorch.org/get-started/previous-versions/ as : "pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html"
+but will throw error as "ERROR: Could not find a version that satisfies the requirement torchvision==0.11.2+cu111 (from versions: 0.1.6, 0.1.7, 0.1.8, 0.1.9, 0.2.0, 0.2.1, 0.2.2, 0.2.2.post2, 0.2.2.post3, 0.5.0, 0.9.0, 0.9.0+cu111, 0.9.1, 0.9.1+cu111, 0.10.0, 0.10.0+cu111, 0.10.1, 0.10.1+cu111, 0.11.0, 0.11.1, 0.11.2, 0.11.3, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2)
+ERROR: No matching distribution found for torchvision==0.11.2+cu111"
+4) So, install it like "pip install torch==1.10.1+cu111 torchvision==0.11.2 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html" - but CUDA Device will not run i.e., GPU won't be used as cu111 isn't attached with torchvision
+5) So, install it like "pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1 -f https://download.pytorch.org/whl/torch_stable.html" - will run on CUDA i.e. GPU for faster predictions and training
+6) Check if pytorch is installed or not using "import torch"
+
+7) install onnx and onnxruntime = 1.11 version for compatibility and for conversion keep opset_version as 11 for cpu inference, if gpu inference then onnxruntime-gpu == 1.11
+8) pip install openvino(latest is 2023.1, also comaptible with onnx-gpu=1.11.0)  
+   and check openvino in cmd prompt for devices as : python -c "from openvino.runtime import Core; print(Core().available_devices)"
+9) to run onnx with openvino backend then openvino-onnxruntime==1.11 : "https://github.com/intel/onnxruntime/releases/" or "https://pypi.org/project/onnxruntime-openvino/"
+   for 10th point : "https://stackoverflow.com/collectives/articles/72781461/how-to-accelerate-inference-with-openvino-execution-provider-for-onnx-runtime"
+   Note : this will only work with python3.10 for Windows but for Linux, support is python3.8 onwards

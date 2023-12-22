@@ -1,0 +1,71 @@
+
+Dataset download : 
+1) https://universe.roboflow.com/fyp-vzed3/test-project-h3ygw/dataset/1
+2) https://universe.roboflow.com/augmented-startups/drowsiness-detection-cntmz/dataset/2
+
+
+Code Links :
+1) https://debuggercafe.com/custom-object-detection-using-pytorch-faster-rcnn/  --> referred this for basic training and testing
+3) https://stackoverflow.com/questions/67959327/how-to-calculate-the-f1-score --> nice script in the question with diff backbones --> path - G:\Projects\ADAS\DDW\Extras\Pytorch_Train_Eval_Nice_Script.py
+2) https://debuggercafe.com/traffic-sign-detection-using-pytorch-and-pretrained-faster-rcnn-model/
+3) https://debuggercafe.com/using-any-torchvision-pretrained-model-as-backbone-for-pytorch-faster-rcnn/  --> for multiple different backbones in path G:\Projects\ADAS\DDW\Extras\20220425_Traffic_Sign_Detection_using_PyTorch_Faster_RCNN_with_Custom_Backbone\src\models
+4) https://debuggercafe.com/traffic-sign-detection-using-pytorch-faster-rcnn-with-custom-backbone/  --> with custom backbone in same as above path
+5) https://debuggercafe.com/traffic-sign-recognition-using-custom-image-classification-model-in-pytorch/  --> with custom backbone explanation 
+6) https://github.com/sovit-123/fasterrcnn-pytorch-training-pipeline/tree/main
+7) https://github.com/sovit-123/fasterrcnn-pytorch-training-pipeline/blob/main/notebook_examples/custom_faster_rcnn_training_colab.ipynb
+8) https://github.com/sovit-123/fasterrcnn-pytorch-training-pipeline/blob/main/notebook_examples/custom_faster_rcnn_training_kaggle.ipynb
+9) https://www.youtube.com/watch?v=qC4yEiJOJtM
+10) https://github.com/eneszzeybek/Driver-Drowsiness-Detection/tree/master --> uses pytorch and CV for eyes closed or opened classification
+
+
+Sample SSD Implementation Links :
+1) https://github.com/uvipen/SSD-pytorch/tree/main
+2) https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD
+3) https://github.com/cydonia999/VGGFace2-pytorch/tree/master
+4) https://www.kaggle.com/code/sdeagggg/ssd300-with-pytorch/notebook#SSD-model
+5) https://debuggercafe.com/custom-backbone-for-pytorch-ssd/
+6) https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection/tree/master
+
+
+Errors : 
+1) for training shape - https://discuss.pytorch.org/t/valueerror-expected-target-boxes-to-be-a-tensorof-shape-n-4-got-torch-size-4/137314
+2) for getting only 1 box per image - https://discuss.pytorch.org/t/only-100-predictions-outputs-for-torchvision-object-detection-finetuning-tutorial/98029/4
+				      https://pytorch.org/vision/0.12/_modules/torchvision/models/detection/faster_rcnn.html
+3) for torchmetrics import - https://stackoverflow.com/questions/72980064/from-typing-extensions-import-paramspec-importerror-cannot-import-name-paramsp
+4) for torchmetrics.map, when iscrowd is used, throws error, so comment it in current usecase 
+
+
+Must Read & Used for Creating the Script :
+1) for FRCNN - https://medium.com/@fractal.ai/guide-to-build-faster-rcnn-in-pytorch-42d47cb0ecd3
+2) for mAP and other calculations - https://www.v7labs.com/blog/mean-average-precision
+3) for torchmetrics like mAP and IoU - https://torchmetrics.readthedocs.io/en/stable/detection/mean_average_precision.html
+4) for difference between model.train() & model.eval() - https://medium.com/jun94-devpblog/pytorch-6-model-train-vs-model-eval-no-grad-hyperparameter-tuning-3812c216a3bd#:~:text=train()%20sets%20the%20modules,eval()%20does%20the%20opposite.
+5) for loading checkpoint to continue training - https://discuss.pytorch.org/t/loading-a-saved-model-for-continue-training/17244
+6) for pytorch saving extensions - https://stackoverflow.com/questions/59095824/what-is-the-difference-between-pt-pth-and-pwf-extentions-in-pytorch
+7) for metrics(TP, FP, FN, Precision, Recall, F1) - https://jamesmccaffrey.wordpress.com/2023/04/12/computing-and-displaying-a-confusion-matrix-for-a-pytorch-neural-network-binary-classifier/			  					      
+						    https://www.analyticsvidhya.com/blog/2021/06/confusion-matrix-for-multi-class-classification/
+8) for considering 1 class's FP as another's FN when model predicts all - https://stats.stackexchange.com/questions/160380/are-the-total-false-positives-and-false-negatives-of-a-large-confusion-matrix-eq
+9) for FP and FN when model doesn't predicts - https://stats.stackexchange.com/questions/276914/how-can-i-calculate-the-false-positive-rate-for-an-object-detection-algorithm-w
+10) for future use confusion matrix plot with tensorboard & pytorch - https://christianbernecker.medium.com/how-to-create-a-confusion-matrix-with-tensorboard-and-pytorch-3344ad5e7209
+11) difference between onnx and openvino - https://blog.ml6.eu/openvino-vs-onnx-for-transformers-in-production-3e10c01520c8
+12) for accelerating onnx on openvino backend(only for windows needs python 3.10 using pip install onnxruntime-openvino==1.11) : https://stackoverflow.com/collectives/articles/72781461/how-to-accelerate-inference-with-openvino-execution-provider-for-onnx-runtime
+
+
+ONNX :
+1) https://discuss.pytorch.org/t/exporting-fasterrcnn-fasterrcnn-resnet50-fpn-to-onnx/55246/8
+2) https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
+3) for export function def - https://glaringlee.github.io/_modules/torch/onnx.html#export
+4) https://github.com/pytorch/pytorch/issues/24009
+5) https://github.com/pytorch/pytorch/issues/72175
+6) for cpu to gpu performance issue - https://stackoverflow.com/questions/70740287/onnxruntime-inference-is-way-slower-than-pytorch-on-gpu
+7) for gpu onnx - https://stackoverflow.com/questions/64452013/how-do-you-run-a-onnx-model-on-a-gpu --> this is imp
+8) for onnx pytorch performance comparison - https://stackoverflow.com/questions/70740287/onnxruntime-inference-is-way-slower-than-pytorch-on-gpu
+9) for different input image size in onnx conversion - https://discuss.pytorch.org/t/export-to-onnx-flexible-scale-factor-of-resize-onnx-operator/182388
+
+
+OpenVINO :
+1) for conversion and inference from pytorch to onnx to openvino : https://docs.openvino.ai/2023.1/notebooks/102-pytorch-onnx-to-openvino-with-output.html
+2) https://medium.com/openvino-toolkit/how-to-convert-pytorch-model-and-run-it-with-openvino-toolkit-c73cebcc01f5
+3) OpenVINO API Tutorial : https://docs.openvino.ai/2023.1/notebooks/002-openvino-api-with-output.html
+4) https://docs.openvino.ai/2023.1/openvino_docs_MO_DG_FP16_Compression.html
+
